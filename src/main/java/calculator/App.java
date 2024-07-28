@@ -1,17 +1,13 @@
 package calculator;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
     public static void main(String[] args) {
-       // level1 -1
         Scanner sc = new Scanner(System.in);
+        Queue<Integer> inQueue = new LinkedList<>();
 
-        int[] arr = new int[10];
-        int count = 0;
 
         while(true){
             int result = 0;
@@ -49,20 +45,17 @@ public class App {
                     System.out.println("잘못된 입력값 입니다.");
                     break;
             }
-            if (count >= arr.length) {
-                // 배열이 가득 찼을 경우 모든 요소를 앞으로 이동
-                for (int i = 0; i < arr.length - 1; i++) {
-                    arr[i] = arr[i + 1];
-                }
-                arr[arr.length - 1] = result; // 가장 마지막에 새 결과 저장
-            } else {
-                arr[count] = result;
-                count++;
-            }
 
-            System.out.println("count :" +count);
-            System.out.println(Arrays.toString(arr));
+            System.out.println("가장 먼저 저장된 연산결과를 삭제하시겠습니까?(remove 입력시 삭제)");
             sc.nextLine();
+            String deleteKeyWord = sc.nextLine();
+
+            if (Objects.equals(deleteKeyWord, "remove")){
+                inQueue.poll();
+                inQueue.add(result);
+            }else {
+                inQueue.add(result);
+            }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
             String str = sc.nextLine();
