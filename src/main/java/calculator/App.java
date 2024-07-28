@@ -8,7 +8,6 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Queue<Integer> inQueue = new LinkedList<>();
 
-
         while(true){
             int result = 0;
             System.out.println("첫 번째 숫자를 입력하세요: " );
@@ -55,6 +54,12 @@ public class App {
                 inQueue.add(result);
             }else {
                 inQueue.add(result);
+            }
+
+            System.out.println("저장된 연산 결과를 조회하시겠습니까?(inquiry 입력시 조회)");
+            String checkKeyWord = sc.nextLine();
+            if (Objects.equals(checkKeyWord,"inquiry")){
+                System.out.println(inQueue);
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
