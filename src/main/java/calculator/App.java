@@ -44,19 +44,25 @@ public class App {
                 }else{
                     System.out.println("num2는 0이 될 수 없습니다.");
                 }
-
-                    // 32~37줄  if문 삼항연산자로 변환
-                    //System.out.println((num2 != 0) ?  result =  num1 / num2 : "num2는 0이 될 수 없습니다.");
-                    break;
+                break;
                 default:
                     System.out.println("잘못된 입력값 입니다.");
                     break;
             }
-            arr[count] = result;
-            count++;
+            if (count >= arr.length) {
+                // 배열이 가득 찼을 경우 모든 요소를 앞으로 이동
+                for (int i = 0; i < arr.length - 1; i++) {
+                    arr[i] = arr[i + 1];
+                }
+                arr[arr.length - 1] = result; // 가장 마지막에 새 결과 저장
+            } else {
+                arr[count] = result;
+                count++;
+            }
 
-            sc.nextLine(); // 오늘 물어볼것
-
+            System.out.println("count :" +count);
+            System.out.println(Arrays.toString(arr));
+            sc.nextLine();
 
             System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
             String str = sc.nextLine();
