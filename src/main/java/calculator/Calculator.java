@@ -3,7 +3,7 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Double> doubleList = new ArrayList<>();
+   private ArrayList<Double> doubleList = new ArrayList<>();
 
     public  double  calulate(int num1, int num2, char operator){
         double result = 0;
@@ -32,4 +32,15 @@ public class Calculator {
         return result;
     }
 
+    public ArrayList<Double> getDoubleList(){
+        return this.getDoubleList();
+    }
+
+    public void setAddDoubleList(){
+        doubleList.add(result);
+    }
+
+    public  void setRemoveDoubleList(){
+        doubleList.remove(0);
+    }
 }
