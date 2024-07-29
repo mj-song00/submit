@@ -5,11 +5,13 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
+
+        Calculator ca = new Calculator();
+
         Scanner sc = new Scanner(System.in);
-        Queue<Integer> inQueue = new LinkedList<>();
 
         while(true){
-            int result = 0;
+
             System.out.println("첫 번째 숫자를 입력하세요: " );
             int num1 = sc.nextInt();
 
@@ -19,47 +21,23 @@ public class App {
             System.out.println("연산자를 입력하세요: ");
             char op = sc.next().charAt(0); // charAt(index): 입력 받은 string 타입을 char 타입 으로 변환
 
-            switch (op){
-                case '+':
-                    result = num1 + num2;
-                    System.out.println("결과 : " +  result);
-                    break;
-                case '-':
-                    result= num1 - num2;
-                    System.out.println("결과 : " +  result);
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    System.out.println("결과 : " +  result);
-                    break;
-                case '/' :
-                if (num2 != 0) {
-                    result = num1 / num2;
-                    System.out.println("결과 : " + result);
-                }else{
-                    System.out.println("num2는 0이 될 수 없습니다.");
-                }
-                break;
-                default:
-                    System.out.println("잘못된 입력값 입니다.");
-                    break;
-            }
+            double result = ca.calulate(num1, num2, op);
 
-            System.out.println("가장 먼저 저장된 연산결과를 삭제하시겠습니까?(remove 입력시 삭제)");
+           System.out.println("가장 먼저 저장된 연산결과를 삭제하시겠습니까?(remove 입력시 삭제)");
             sc.nextLine();
             String deleteKeyWord = sc.nextLine();
 
             if (Objects.equals(deleteKeyWord, "remove")){
-                inQueue.poll();
-                inQueue.add(result);
+                ca.doubleList.remove(0);
+                ca.doubleList.add(result);
             }else {
-                inQueue.add(result);
+                ca.doubleList.add(result);
             }
 
             System.out.println("저장된 연산 결과를 조회하시겠습니까?(inquiry 입력시 조회)");
             String checkKeyWord = sc.nextLine();
             if (Objects.equals(checkKeyWord,"inquiry")){
-                System.out.println(inQueue);
+                System.out.println(ca.doubleList);
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
