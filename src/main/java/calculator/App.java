@@ -28,16 +28,16 @@ public class App {
             String deleteKeyWord = sc.nextLine();
 
             if (Objects.equals(deleteKeyWord, "remove")){
-                ca.doubleList.remove(0);
-                ca.doubleList.add(result);
-            }else {
-                ca.doubleList.add(result);
+                ca.setRemoveDoubleList();
+                ca.setAddDoubleList();
+            }else{
+                ca.setAddDoubleList();
             }
 
             System.out.println("저장된 연산 결과를 조회하시겠습니까?(inquiry 입력시 조회)");
             String checkKeyWord = sc.nextLine();
             if (Objects.equals(checkKeyWord,"inquiry")){
-                System.out.println(ca.doubleList);
+                System.out.println(ca.getDoubleList());
             }
 
             System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");

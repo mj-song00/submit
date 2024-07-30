@@ -3,9 +3,10 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-   private ArrayList<Double> doubleList = new ArrayList<>();
+  private  ArrayList<Double> doubleList = new ArrayList<>();
+    private Double lastResult;
 
-    public  double  calulate(int num1, int num2, char operator){
+    double  calulate(int num1, int num2, char operator){
         double result = 0;
 
         switch (operator){
@@ -28,19 +29,23 @@ public class Calculator {
             default:
                 throw new Error( operator + " 대신 알맞은 사칙연산 기호를 입력해 주세요.");
         }
-
+        lastResult = result;
         return result;
     }
 
-    public ArrayList<Double> getDoubleList(){
-        return this.getDoubleList();
-    }
-
-    public void setAddDoubleList(){
-        doubleList.add(result);
-    }
+//    public ArrayList<Double> getDoubleList(){
+//        return doubleList;
+//    }
+//
+//    public void setAddDoubleList(){
+//        doubleList.add(lastResult);
+//    }
 
     public  void setRemoveDoubleList(){
-        doubleList.remove(0);
+        if(!doubleList.isEmpty()){
+            doubleList.remove(0);
+        }else{
+            throw new Error("인덱스가 존재하지 않습니다.");
+        }
     }
 }
