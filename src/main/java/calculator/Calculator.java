@@ -33,10 +33,10 @@ public class Calculator {
         return result;
     }
 
-//    public ArrayList<Double> getDoubleList(){
-//        return doubleList;
-//    }
-//
+    public ArrayList<Double> getDoubleList(){
+        return doubleList;
+    }
+
 //    public void setAddDoubleList(){
 //        doubleList.add(lastResult);
 //    }
