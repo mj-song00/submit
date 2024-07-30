@@ -14,7 +14,7 @@ public class App {
 
         while (true) {
 
-            System.out.println("1. 계산하기 | 아무거나 누르면 원의 넓이 구할 수 있어요");
+            System.out.println("1. 계산하기 | 1을 제외한 숫자를 누르면 원의 넓이 구할 수 있어요");
 
             if (Objects.equals(sc.nextInt(), 1)) {
                 System.out.println("첫 번째 숫자를 입력하세요: ");

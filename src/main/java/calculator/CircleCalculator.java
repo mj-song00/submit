@@ -5,10 +5,13 @@ import java.util.ArrayList;
 public class CircleCalculator extends Calculator{
     // 원의 넓이 계산
     final ArrayList<Double> resultList = new ArrayList<>();
-    private  int lastRadius;
+
+    private Double lastResult;
+
     public  double calculateCircleArea(int r){
-        double result = getCircle(r) * circumference;
-        return result;
+        lastResult = getCircle(r) * circumference;
+        System.out.println("계산된 원의 크기 " + lastResult);
+        return lastResult;
     }
 
     // 원주율 3.14 고정
@@ -21,10 +24,6 @@ public class CircleCalculator extends Calculator{
         return (int) Math.pow(r, POW);
     }
 
-    public void setRadius(int r) {
-        this.lastRadius = r;
-    }
-
     @Override
     public ArrayList<Double> getResult(){
         return resultList;
@@ -32,8 +31,8 @@ public class CircleCalculator extends Calculator{
 
     @Override
     public void setAddResult(){
-        double result = calculateCircleArea(lastRadius);
-        resultList.add(result);
+        System.out.println("저장되는 원의크기 :" + lastResult);
+        resultList.add(lastResult);
     }
 
     @Override
