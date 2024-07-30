@@ -6,18 +6,18 @@ public class App {
 
     public static void main(String[] args) {
 
-        Calculator ca = new Calculator();
-
+//        Calculator ca = new Calculator();
+        ArithmeticCalculator ca = new ArithmeticCalculator();
+        CircleCalculator ci = new CircleCalculator();
 
         Scanner sc = new Scanner(System.in);
 
-        while(true){
+        while (true) {
 
-            System.out.println("1. 계산하기 | 2. 원의 넓이 구하기");
-            int menu = sc.nextInt();
+            System.out.println("1. 계산하기 | 아무거나 누르면 원의 넓이 구할 수 있어요");
 
-            if(menu == 1){
-                System.out.println("첫 번째 숫자를 입력하세요: " );
+            if (Objects.equals(sc.nextInt(), 1)) {
+                System.out.println("첫 번째 숫자를 입력하세요: ");
                 int num1 = sc.nextInt();
 
                 System.out.println("두 번째 숫자를 입력하세요: ");
@@ -32,44 +32,44 @@ public class App {
                 sc.nextLine();
                 String deleteKeyWord = sc.nextLine();
 
-                if (Objects.equals(deleteKeyWord, "remove")){
-                    ca.setRemoveDoubleList();
-                    ca.setAddDoubleList();
-                }else{
-                    ca.setAddDoubleList();
+                if (Objects.equals(deleteKeyWord, "remove")) {
+                    ca.setRemoveResult();
+                    ca.setAddResult();
+                } else {
+                    ca.setAddResult();
                 }
 
                 System.out.println("저장된 연산 결과를 조회하시겠습니까?(inquiry 입력시 조회)");
                 String checkKeyWord = sc.nextLine();
-                if (Objects.equals(checkKeyWord,"inquiry")){
-                    System.out.println(ca.getDoubleList());
+                if (Objects.equals(checkKeyWord, "inquiry")) {
+                    System.out.println(ca.getResult());
                 }
 
                 System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
                 String str = sc.nextLine();
-                if (Objects.equals(str, "exit")){
+                if (Objects.equals(str, "exit")) {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
-            } else if (menu ==2){
+            } else  {
                 //원의 넓이 구하기
-                System.out.println("반지름을 입력해주세요: " );
+                System.out.println("반지름을 입력해주세요: ");
                 int r = sc.nextInt();
 
-                double result = ca.calculateCircleArea(r);
-                ca.setAddCircleList(r);
+                double result = ci.calculateCircleArea(r);
+                ci.setAddResult();
                 System.out.println("원의 넓이는 " + result + "입니다.");
 
                 System.out.println("저장된 결과를 조회하시겠습니까?(inquiry 입력시 조회)");
                 sc.nextLine();
                 String checkKeyWord = sc.nextLine();
-                if (Objects.equals(checkKeyWord,"inquiry")){
-                    System.out.println(ca.getCircleList());
+                if (Objects.equals(checkKeyWord, "inquiry")) {
+                    System.out.println(ci.getResult());
                 }
 
                 System.out.println("더 계산 하시겠습니까? (exit 입력시 종료) :");
                 String str = sc.nextLine();
-                if (Objects.equals(str, "exit")){
+                if (Objects.equals(str, "exit")) {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
