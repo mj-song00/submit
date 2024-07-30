@@ -37,9 +37,9 @@ public class Calculator {
         return doubleList;
     }
 
-//    public void setAddDoubleList(){
-//        doubleList.add(lastResult);
-//    }
+    public void setAddDoubleList(){
+        doubleList.add(lastResult);
+    }
 
     public  void setRemoveDoubleList(){
         if(!doubleList.isEmpty()){
