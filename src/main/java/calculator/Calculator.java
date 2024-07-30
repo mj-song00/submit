@@ -3,8 +3,8 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-  private  ArrayList<Double> doubleList = new ArrayList<>();
-    private Double lastResult;
+  final  ArrayList<Double> doubleList = new ArrayList<>();
+    Double lastResult;
 
     double  calulate(int num1, int num2, char operator){
         double result = 0;
