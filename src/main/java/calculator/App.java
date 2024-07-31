@@ -26,7 +26,7 @@ public class App {
                 System.out.println("연산자를 입력하세요: ");
                 char op = sc.next().charAt(0); // charAt(index): 입력 받은 string 타입을 char 타입 으로 변환
 
-                double result = ca.calulate(num1, num2, op);
+              //  double result = ca.calulate(num1, num2, op);
 
                 System.out.println("가장 먼저 저장된 연산결과를 삭제하시겠습니까?(remove 입력시 삭제)");
                 sc.nextLine();

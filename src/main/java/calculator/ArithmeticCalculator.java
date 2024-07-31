@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator {
     final  ArrayList<Double> resultList = new ArrayList<>();
-    Double lastResult;
+    private Double lastResult;
     //간단한 계산기
     public double calulate(int num1, int num2, char operator){
         double result = 0;
@@ -31,7 +31,10 @@ public class ArithmeticCalculator extends Calculator {
         }
         lastResult = result;
         return result;
-    }
+
+   }
+
+
 
     @Override
     public ArrayList<Double> getResult(){
